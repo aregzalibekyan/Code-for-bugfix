@@ -6,10 +6,9 @@ import {
   formatPercentage,
 } from "../helpers";
 import { BanknotesIcon, TrashIcon } from "@heroicons/react/24/solid";
-import { toast } from "react-toastify";
 const BudgetItem = ({ budget, showDelete = false }) => {
   const { id, name, amount, color } = budget;
-  
+
   // Add state variable to track the total amount spent within the budget
   const [totalSpent, setTotalSpent] = useState(calculateSpentByBudget(id));
   useEffect(() => {
@@ -36,7 +35,7 @@ const BudgetItem = ({ budget, showDelete = false }) => {
         <small>{formatCurrency(totalSpent)} spent</small>
         <small>{formatCurrency(amount - totalSpent)} remaining</small>
       </div>
-      
+
       {showDelete ? (
         <div className="flex-sm">
           <Form
@@ -48,7 +47,6 @@ const BudgetItem = ({ budget, showDelete = false }) => {
               }
             }}
           >
-            
             <button type="submit" className="btn">
               <span>Delete Budget</span>
               <TrashIcon width={20} />

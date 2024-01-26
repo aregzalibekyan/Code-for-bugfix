@@ -1,5 +1,5 @@
 //react imports
-import { useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 
 //rrd imports
 import { useFetcher } from "react-router-dom";
@@ -48,6 +48,7 @@ const AddExpenseForm = ({ budgets }) => {
             <input
               type="text"
               step="0.01"
+              min="1"
               inputMode="decimal"
               name="newExpenseAmount"
               id="newExpenseAmount"

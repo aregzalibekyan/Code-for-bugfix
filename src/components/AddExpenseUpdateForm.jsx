@@ -26,7 +26,6 @@ const AddExpenseUpdateForm = ({ expenses }) => {
       <h2 className="h3">
         Update{" "}
         <span className="accent">
-       
           {expenses && expenses.length == 1 && expenses[0].name}
         </span>{" "}
         Expense
@@ -49,6 +48,7 @@ const AddExpenseUpdateForm = ({ expenses }) => {
             <input
               type="number"
               step="0.01"
+              min="1"
               inputMode="decimal"
               name="newExpenseAmount"
               id="newExpenseAmount"
@@ -58,18 +58,21 @@ const AddExpenseUpdateForm = ({ expenses }) => {
             />
           </div>
         </div>
-        <div className="grid-xs" hidden={expenses.length === 1 || expenses.length === 0}>
+        <div
+          className="grid-xs"
+          hidden={expenses.length === 1 || expenses.length === 0}
+        >
           <label htmlFor="newExpenseBudget">Budget Category</label>
           <select name="newExpenseId" id="newExpenseBudget" required>
-            {expenses && expenses.length!=0 &&
+            {expenses &&
+              expenses.length != 0 &&
               expenses
                 .sort((a, b) => a.createdAt - b.createdAt)
                 .map((expense) => (
                   <option key={expense.id} value={expense.id}>
                     {expense.name}
                   </option>
-                ))
-            }
+                ))}
           </select>
         </div>
         <input type="hidden" name="_action" value="updateExpense" />

@@ -55,11 +55,10 @@ const ExpenseItem = ({ expense, showBudget }) => {
             <input type="hidden" name="_action" value="updateExpense" />
             <input type="hidden" name="expenseId" value={expense.id} />
             <Link
-            to={`/budget/${expense.budgetId}`}
+              to={`/budget/${expense.budgetId}`}
               type="submit"
-              className="btn btn--success btn1"
+              className="btn--success btn1"
               aria-label={`Update ${expense.name} expense`}
-              
             >
               <CloudIcon width={20} />
             </Link>
